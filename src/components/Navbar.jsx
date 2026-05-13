@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
     const [activeSection, setActiveSection] = useState('home');
@@ -58,7 +59,61 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     </motion.a>
 
                     {/* {navigation items} */}
+                    <div className=' lg:flex items-center space-x-6'>
+                        {navItems.map((items) => (
+                            <motion.a
+                                key={items.name}
+                                href={items.link}
+                                whileHover={{ scale: 1.05 }}
+                                className='relative'
+                                onClick={() => handleNavClick(items.name)}
+                            >
+                                <motion.span className={`font-medium transition-colors duration-300 ${activeSection === items.name.toLocaleLowerCase() ? colors.textActive : `${colors.textSecondary} hover:text-orange-500`}`}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    {items.name}
+                                </motion.span>
+                                {activeSection === items.name.toLowerCase() && (
+                                    <motion.div layoutId="navbar-indicator"
+                                        className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-linear-to-r rounded-full ${colors.indicator}`}>
 
+
+                                    </motion.div>
+                                )}
+                            </motion.a>
+                        ))}
+
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        {/* {Dark mode toggle} */}
+
+                        <motion.button
+                            className={`p-2 rounded-full ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} transition-colors`}
+                            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={toggleDarkMode}
+
+                        >
+                            {darkMode ? (
+                                <Sun className="w-5 h-5 text-yellow-300" />
+                            ) : (
+                                <Moon className="w-5 h-5 text-gray-700" />
+                            )}
+                        </motion.button>
+                        {/* {button} */}
+                        <motion.a
+                            href="#contact"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`hidden lg:block px-6 py-2 font-semibold rounded-full bg-linear-to-r ${colors.button} text-white shadow-md hover:shadow-lg transition-shadow`}
+
+                        >
+                            Hire Me
+
+                        </motion.a>
+                    </div>
                 </div>
             </motion.nav>
         </div>
