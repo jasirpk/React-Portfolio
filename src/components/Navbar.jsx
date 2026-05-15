@@ -59,7 +59,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     </motion.a>
 
                     {/* {navigation items} */}
-                    <div className=' lg:flex items-center space-x-6'>
+                    <div className='hidden lg:flex items-center space-x-6'>
                         {navItems.map((items) => (
                             <motion.a
                                 key={items.name}
@@ -151,10 +151,10 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 </a>
                             ))}
                             <motion.a
-                            href='#contact'
-                            onClick={()=>setIsMenuOpen(false)}
-                            whileTap={{scale: 0.95}}
-                            className={`block py-3 px-4 text-center font-semibold rounded-lg bg-linear-to-r ${colors.button}
+                                href='#contact'
+                                onClick={() => setIsMenuOpen(false)}
+                                whileTap={{ scale: 0.95 }}
+                                className={`block py-3 px-4 text-center font-semibold rounded-lg bg-linear-to-r ${colors.button}
                             text-white shadow-md`}
                             >
                                 Hire Me

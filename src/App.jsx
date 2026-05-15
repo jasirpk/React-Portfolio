@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import './index.css';
+import Hero from './components/Hero';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         : 'bg-linear-to-br from-gray-50 to-blue-50 min-h-screen'
     }>
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      <Hero darkMode={darkMode} />
     </div>
   )
 }
