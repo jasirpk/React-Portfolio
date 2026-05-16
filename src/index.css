@@ -5,9 +5,11 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
 .dark {
     color-scheme: dark;
 }
+
 html {
     scroll-behavior: smooth;
 }
